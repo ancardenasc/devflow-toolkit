@@ -22,7 +22,7 @@ Creates the folder structure and documents of a 10-phase portfolio case-study in
 1. Copy the whole `template/` folder that sits next to this file (Claude Code: `${CLAUDE_SKILL_DIR}/template/`) into `target-dir`, preserving structure.
 2. Make sure `src/` and `tests/` exist (keep the `.gitkeep` files; git ignores empty folders).
 3. If `project-name` was given, replace `[Project name]` in `docs/case-study.md` and the first heading of `README.md` (`# Portfolio Blueprint`) with it. Leave the rest of the README: it is the phase guide.
-4. Replace `[Your Name]` in `LICENSE` with the author's name, asking if unknown.
+4. In `LICENSE` replace `[Year]` with the current year (`date +%Y`, no need to ask) and `[Your Name]` with the author's name, asking only if it is unknown.
 5. Never overwrite existing files in `target-dir`; list which ones were skipped.
 6. Summarize what was created and remind the order: fill `docs/brief.md` (Phase 0) first, and do not advance a phase before its "Done when" criterion is met.
 

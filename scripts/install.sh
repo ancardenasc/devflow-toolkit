@@ -9,9 +9,14 @@ root="$(cd "$(dirname "$0")/.." && pwd)"
 case "$tool" in
   claude)
     for sub in skills agents commands; do
-      mkdir -p "$target/.claude/$sub"
-      for p in "$root"/plugins/*/"$sub"; do [ -d "$p" ] && cp -R "$p"/. "$target/.claude/$sub/"; done
-    done ;;
+      for p in "$root"/plugins/*/"$sub"; do
+        [ -d "$p" ] || continue
+        mkdir -p "$target/.claude/$sub"
+        cp -R "$p"/. "$target/.claude/$sub/"
+      done
+    done
+    echo "note: hooks cannot be copied. To enable session-title, use the plugin marketplace" \
+         "or register plugins/devflow-core/hooks/session-title.sh as a SessionStart hook in .claude/settings.json" ;;
   copilot)
     mkdir -p "$target/.github"
     cp -R "$root/dist/copilot/." "$target/.github/" ;;
