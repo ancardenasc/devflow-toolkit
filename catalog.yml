@@ -80,3 +80,8 @@ assets:
     bundle: devflow-review
     description: Copilot slash command for a full ticket review with an executive summary.
     description_es: Comando slash de Copilot para una revision completa de ticket con resumen ejecutivo.
+  - id: execute-task
+    type: skill
+    bundle: devflow-core
+    description: Runs a whole task end to end - plan, TDD, local reviews, minimal commits, PR/MR with testing instructions, optional browser check and tester assignment; never merges.
+    description_es: Ejecuta una tarea completa - plan, TDD, revisiones locales, commits minimos, PR/MR con instrucciones de testeo, verificacion en navegador y testers opcionales; nunca hace merge.

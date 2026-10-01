@@ -32,6 +32,7 @@ cp .devflow.example.yml /ruta/a/tu/proyecto/.devflow.yml
 | `case-kit` | devflow-portfolio | Genera un repo de caso de estudio de portafolio en 10 fases (brief, investigacion, PRD, diseno, pruebas, accesibilidad, caso). |
 | `start-task` | devflow-core | Inicia una tarea - consulta el ticket, rama base desde el ticket padre, rama con nombre, tests baseline y PR/MR en borrador. |
 | `review-ticket` | devflow-review | Revisa un ticket terminado - verifica DoD y corre los agentes code-review, code-clean y ux-review, un reporte consolidado y publicacion opcional. |
+| `execute-task` | devflow-core | Ejecuta una tarea completa - plan, TDD, revisiones locales, commits minimos, PR/MR con instrucciones de testeo, verificacion en navegador y testers opcionales; nunca hace merge. |
 
 ### Agentes
 

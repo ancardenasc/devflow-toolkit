@@ -4,13 +4,14 @@ tracker:
   type: github            # github | jira | linear | none
   ticket_pattern: '[A-Z]+-\d+'   # regex used to find the ticket id in branch names
   site: null              # e.g. your-team.atlassian.net (jira only)
-  fields: {}              # tracker-specific ids, e.g. { sprint: customfield_XXXXX }
+  fields: {}              # tracker-specific ids, e.g. { tester: customfield_XXXXX, sprint: customfield_YYYYY }
 vcs:
   type: github            # github | gitlab
   default_branch: main
   assignee: null          # default MR/PR assignee
 workflow:
   base_from_parent: true   # branch from the parent ticket's branch when it exists
+  assign_testers: false    # execute-task step 12: propose and assign testers via the task-reviewers agent
 branch:
   pattern: "{ticket}-{slug}"
   max_slug_length: 50
@@ -22,6 +23,17 @@ commands:
   test: null              # e.g. "npm test", "yarn test --watchAll=false", "pytest"
   lint: null
   build: null
+review:
+  max_auto_passes: 3      # automatic fix-and-re-review passes for critical findings
+code_style:
+  comments: minimal       # none | minimal. 'none' forbids comments in generated code and tests
+verify:                   # execute-task step 8b, browser verification (off by default)
+  enabled: false
+  browser: chrome         # chrome | playwright
+  start_command: null     # how to bring the local stack up (offered, never run silently)
+  health_checks: []       # [{ name: web, url: http://localhost:3000, expect: 200 }]
+environment:
+  services: []            # [{ name: api, path: ../api, check: "curl -s -o /dev/null -w '%{http_code}' http://localhost:3002" }]
 frontend_globs: ["**/*.{vue,jsx,tsx,css,scss,html}"]
 docs:
   target: markdown        # markdown | confluence | notion

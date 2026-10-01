@@ -32,6 +32,7 @@ cp .devflow.example.yml /path/to/your/project/.devflow.yml
 | `case-kit` | devflow-portfolio | Scaffolds a 10-phase portfolio case-study repo (brief, research, PRD, design, testing, accessibility, case study). |
 | `start-task` | devflow-core | Starts a task - ticket lookup, base branch from the parent ticket, named branch, baseline tests and a draft PR/MR. |
 | `review-ticket` | devflow-review | Reviews a finished ticket - DoD check plus code-review, code-clean and ux-review agents, one consolidated report, optional publishing. |
+| `execute-task` | devflow-core | Runs a whole task end to end - plan, TDD, local reviews, minimal commits, PR/MR with testing instructions, optional browser check and tester assignment; never merges. |
 
 ### Agents
 
