@@ -1,0 +1,39 @@
+# Example .devflow.yml for Jira + GitLab. Replace every placeholder.
+tracker:
+  type: jira
+  ticket_pattern: 'PROJ-\d+'
+  site: your-team.atlassian.net
+  fields:
+    tester: customfield_XXXXX
+    sprint: customfield_YYYYY
+vcs:
+  type: gitlab
+  default_branch: main
+  assignee: your-gitlab-username
+workflow:
+  base_from_parent: true
+  assign_testers: true
+branch:
+  pattern: "{ticket}-{slug}"
+commit:
+  format: "[{ticket}] {summary}"
+  language: en
+commands:
+  test: "npm test"
+docs:
+  target: confluence
+  path: "<confluence parent folder id>"
+output_language: en
+reviewers:
+  load_margin: 1
+  design:
+    members:
+      - { name: Ana Gomez, vcs_user: anagomez }
+  engineering:
+    groups:
+      - match: Alpha
+        members:
+          - { name: Luis Perez, vcs_user: luisperez }
+      - match: Beta
+        members:
+          - { name: Marta Diaz, vcs_user: martadiaz }

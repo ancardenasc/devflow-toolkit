@@ -57,7 +57,7 @@ def main():
     for f in ROOT.rglob("*"):
         rel = f.relative_to(ROOT).as_posix()
         if (not f.is_file() or rel.startswith((".git/", ".venv/")) or rel in SKIP_FORBIDDEN
-                or rel.startswith("examples/") or f.suffix in {".png", ".jpg", ".gif"}):
+                or f.suffix in {".png", ".jpg", ".gif"}):
             continue
         try:
             for n, line in enumerate(f.read_text().splitlines(), 1):

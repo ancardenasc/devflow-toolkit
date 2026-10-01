@@ -43,6 +43,7 @@ cp .devflow.example.yml /ruta/a/tu/proyecto/.devflow.yml
 | `code-clean` | devflow-review | Gate de Clean Code de solo lectura - nombres, funciones, duplicacion, codigo muerto, tests F.I.R.S.T y metricas medidas. |
 | `ux-review` | devflow-review | Revision UX/accesibilidad de solo lectura en cambios frontend - WCAG 2.2 AA, heuristicas de Nielsen, diseno equitativo. |
 | `task-summary` | devflow-core | Te prepara para explicar una tarea terminada en voz alta - que, por que, como funciona, frase corta y preguntas probables; guarda un respaldo. |
+| `task-reviewers` | devflow-core | Propone testers balanceados por carga real del sprint (uno de diseno, uno de ingenieria) y, tras confirmar, escribe el ticket y los reviewers del PR/MR; nunca toca el assignee. |
 
 ### Prompts / comandos
 

@@ -46,4 +46,4 @@ subagents:                # override names if you rename the reviewers
   code_clean: code-clean
   ux_review: ux-review
   test_writer: unit-test-writer
-reviewers: []             # optional roster for the task-reviewers agent
+reviewers: {}             # roster for the task-reviewers agent; see the agent and examples/jira-gitlab/

@@ -85,3 +85,8 @@ assets:
     bundle: devflow-core
     description: Runs a whole task end to end - plan, TDD, local reviews, minimal commits, PR/MR with testing instructions, optional browser check and tester assignment; never merges.
     description_es: Ejecuta una tarea completa - plan, TDD, revisiones locales, commits minimos, PR/MR con instrucciones de testeo, verificacion en navegador y testers opcionales; nunca hace merge.
+  - id: task-reviewers
+    type: agent
+    bundle: devflow-core
+    description: Proposes balanced testers by real sprint load (one design, one engineering) and, after confirmation, writes the ticket and PR/MR reviewers; never touches the assignee.
+    description_es: Propone testers balanceados por carga real del sprint (uno de diseno, uno de ingenieria) y, tras confirmar, escribe el ticket y los reviewers del PR/MR; nunca toca el assignee.
