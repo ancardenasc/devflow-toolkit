@@ -1,7 +1,7 @@
 # Single source of truth for the asset catalog. README tables and the
 # Claude marketplace are generated from this file (scripts/build.py).
 repo: ancardenasc/devflow-toolkit
-version: 0.1.0
+version: 0.2.0
 author: { name: Nicolas Cardenas, url: https://github.com/ancardenasc }
 license: MIT
 description: Skills, agents and prompts for Claude Code and GitHub Copilot that take a task from ticket to merge.
@@ -13,9 +13,6 @@ bundles:
   devflow-review:
     description: Read-only reviewers - correctness and security, clean code, UX and accessibility.
     description_es: "Revisores de solo lectura: correctitud y seguridad, código limpio, UX y accesibilidad."
-  devflow-portfolio:
-    description: Scaffold a UX/engineering case-study portfolio repository.
-    description_es: "Estructura un repositorio de portafolio con casos de estudio UX/ingeniería."
 
 # assets: id must equal the file/folder name under src/.
 # type: skill | agent | prompt | hook
@@ -35,11 +32,6 @@ assets:
     bundle: devflow-core
     description: Writes unit tests (Jest/Vitest + Testing Library or Vue Test Utils) for behavior, with a11y checks and a red/green TDD flow.
     description_es: "Escribe unit tests (Jest/Vitest + Testing Library o Vue Test Utils) de comportamiento, con a11y y flujo TDD rojo/verde."
-  - id: case-kit
-    type: skill
-    bundle: devflow-portfolio
-    description: Scaffolds a 10-phase portfolio case-study repo (brief, research, PRD, design, testing, accessibility, case study).
-    description_es: "Genera un repo de caso de estudio de portafolio en 10 fases (brief, investigación, PRD, diseño, pruebas, accesibilidad, caso)."
   - id: code-review
     type: agent
     bundle: devflow-review

@@ -11,11 +11,6 @@
       "description": "Ticket-to-merge workflow - start, implement, commit and ship a task."
     },
     {
-      "name": "devflow-portfolio",
-      "source": "./plugins/devflow-portfolio",
-      "description": "Scaffold a UX/engineering case-study portfolio repository."
-    },
-    {
       "name": "devflow-review",
       "source": "./plugins/devflow-review",
       "description": "Read-only reviewers - correctness and security, clean code, UX and accessibility."

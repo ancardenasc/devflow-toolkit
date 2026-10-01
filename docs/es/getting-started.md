@@ -10,7 +10,6 @@ Cinco minutos desde cero hasta tu primera tarea asistida.
 /plugin install devflow-core@devflow-toolkit
 /plugin install devflow-review@devflow-toolkit
 ```
-Agrega `devflow-portfolio@devflow-toolkit` si quieres la estructura de caso de estudio.
 
 **GitHub Copilot, o Claude Code sin plugins**
 ```
@@ -47,7 +46,6 @@ commands: { test: "npm test" }
 | Ejecutar una tarea completa (plan, TDD, revisiones, PR) | `/execute-task` | devflow-core |
 | Crear un commit con el mensaje correcto | `/commit` | devflow-core |
 | Revisar un ticket/PR terminado | `/review-ticket` | devflow-review |
-| Generar un repo de caso de estudio | `/case-kit <dir> <nombre>` | devflow-portfolio |
 
 En Claude Code el plugin les pone namespace (`/devflow-core:start-task`); si copias los archivos tienen el nombre corto. En Copilot Chat los prompts `/start-task` y `/ticket-review` llaman a los mismos skills.
 

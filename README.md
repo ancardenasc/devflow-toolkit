@@ -2,7 +2,7 @@
 
 [![validate](https://github.com/ancardenasc/devflow-toolkit/actions/workflows/validate.yml/badge.svg)](https://github.com/ancardenasc/devflow-toolkit/actions/workflows/validate.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![assets](https://img.shields.io/badge/assets-14-blue)
+![assets](https://img.shields.io/badge/assets-13-blue)
 ![tools](https://img.shields.io/badge/Claude%20Code%20%2B%20Copilot-supported-8A63D2)
 ![docs](https://img.shields.io/badge/docs-EN%20%7C%20ES-lightgrey)
 
@@ -53,7 +53,6 @@ Then run `/start-task` or `/execute-task`. Full walkthrough: [getting started](d
 | Name | Bundle | Description |
 |---|---|---|
 | `commit` | devflow-core | Conventional or ticket-prefixed commits from the staged diff, with confirmation and a batch mode for other skills. |
-| `case-kit` | devflow-portfolio | Scaffolds a 10-phase portfolio case-study repo (brief, research, PRD, design, testing, accessibility, case study). |
 | `start-task` | devflow-core | Starts a task - ticket lookup, base branch from the parent ticket, named branch, baseline tests and a draft PR/MR. |
 | `review-ticket` | devflow-review | Reviews a finished ticket - DoD check plus code-review, code-clean and ux-review agents, one consolidated report, optional publishing. |
 | `execute-task` | devflow-core | Runs a whole task end to end - plan, TDD, local reviews, minimal commits, PR/MR with testing instructions, optional browser check and tester assignment; never merges. |
@@ -83,7 +82,9 @@ Then run `/start-task` or `/execute-task`. Full walkthrough: [getting started](d
 | `session-title` | devflow-core | Names each new Claude Code session after the git branch (Claude Code only). |
 <!-- catalog:end -->
 
-Bundles: **devflow-core** (workflow), **devflow-review** (read-only reviewers), **devflow-portfolio** (case-study scaffold). Install only what you need.
+Bundles: **devflow-core** (workflow), **devflow-review** (read-only reviewers). Install only what you need.
+
+> The `case-kit` skill (portfolio case-study scaffold) moved to [ux-skills-es](https://github.com/ancardenasc/ux-skills-es), together with `case-study-writer`, in Spanish and English.
 
 ## Configuration
 

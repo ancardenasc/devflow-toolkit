@@ -4,6 +4,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [S
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-01
+
+### Removed
+- **devflow-portfolio** bundle and its `case-kit` skill. It moved to [ux-skills-es](https://github.com/ancardenasc/ux-skills-es), which also adds `case-study-writer`, Spanish and English templates and a corrected full MIT licence template. If you installed `devflow-portfolio`, install `case-kit` from `ux-skills-es` instead.
+
+### Fixed
+- The `case-kit` licence template in 0.1.0 shipped an abbreviated MIT text. It is gone from this repository; the full text lives in `ux-skills-es`.
+
 ## [0.1.0] - 2026-09-30
 
 First public release.

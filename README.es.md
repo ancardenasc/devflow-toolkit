@@ -2,7 +2,7 @@
 
 [![validate](https://github.com/ancardenasc/devflow-toolkit/actions/workflows/validate.yml/badge.svg)](https://github.com/ancardenasc/devflow-toolkit/actions/workflows/validate.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![assets](https://img.shields.io/badge/assets-14-blue)
+![assets](https://img.shields.io/badge/assets-13-blue)
 ![tools](https://img.shields.io/badge/Claude%20Code%20%2B%20Copilot-soportado-8A63D2)
 ![docs](https://img.shields.io/badge/docs-EN%20%7C%20ES-lightgrey)
 
@@ -53,7 +53,6 @@ Luego ejecuta `/start-task` o `/execute-task`. Guía completa: [primeros pasos](
 | Nombre | Bundle | Descripción |
 |---|---|---|
 | `commit` | devflow-core | Commits convencionales o con prefijo de ticket a partir del diff, con confirmación y modo batch para otros skills. |
-| `case-kit` | devflow-portfolio | Genera un repo de caso de estudio de portafolio en 10 fases (brief, investigación, PRD, diseño, pruebas, accesibilidad, caso). |
 | `start-task` | devflow-core | Inicia una tarea: consulta el ticket, rama base desde el ticket padre, rama con nombre, tests base y PR/MR en borrador. |
 | `review-ticket` | devflow-review | Revisa un ticket terminado: verifica el DoD y corre los agentes code-review, code-clean y ux-review; un reporte consolidado y publicación opcional. |
 | `execute-task` | devflow-core | Ejecuta una tarea completa: plan, TDD, revisiones locales, commits mínimos, PR/MR con instrucciones de testeo, verificación en navegador y testers opcionales; nunca hace merge. |
@@ -83,7 +82,9 @@ Luego ejecuta `/start-task` o `/execute-task`. Guía completa: [primeros pasos](
 | `session-title` | devflow-core | Nombra cada sesión nueva de Claude Code con la rama git (solo Claude Code). |
 <!-- catalog:end -->
 
-Bundles: **devflow-core** (flujo), **devflow-review** (revisores de solo lectura), **devflow-portfolio** (estructura de casos de estudio). Instala solo lo que necesites.
+Bundles: **devflow-core** (flujo), **devflow-review** (revisores de solo lectura). Instala solo lo que necesites.
+
+> El skill `case-kit` (estructura de casos de estudio de portafolio) se movió a [ux-skills-es](https://github.com/ancardenasc/ux-skills-es), junto con `case-study-writer`, en español e inglés.
 
 ## Configuración
 
