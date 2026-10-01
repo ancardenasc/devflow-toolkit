@@ -55,3 +55,28 @@ assets:
     bundle: devflow-review
     description: Read-only UX/accessibility review on frontend changes - WCAG 2.2 AA, Nielsen heuristics, equitable design.
     description_es: Revision UX/accesibilidad de solo lectura en cambios frontend - WCAG 2.2 AA, heuristicas de Nielsen, diseno equitativo.
+  - id: start-task
+    type: skill
+    bundle: devflow-core
+    description: Starts a task - ticket lookup, base branch from the parent ticket, named branch, baseline tests and a draft PR/MR.
+    description_es: Inicia una tarea - consulta el ticket, rama base desde el ticket padre, rama con nombre, tests baseline y PR/MR en borrador.
+  - id: review-ticket
+    type: skill
+    bundle: devflow-review
+    description: Reviews a finished ticket - DoD check plus code-review, code-clean and ux-review agents, one consolidated report, optional publishing.
+    description_es: Revisa un ticket terminado - verifica DoD y corre los agentes code-review, code-clean y ux-review, un reporte consolidado y publicacion opcional.
+  - id: task-summary
+    type: agent
+    bundle: devflow-core
+    description: Prepares you to explain a finished task out loud - what, why, how it works, one-line pitch and likely questions; saves a backup page.
+    description_es: Te prepara para explicar una tarea terminada en voz alta - que, por que, como funciona, frase corta y preguntas probables; guarda un respaldo.
+  - id: start-task
+    type: prompt
+    bundle: devflow-core
+    description: Copilot slash command that runs the start-task skill.
+    description_es: Comando slash de Copilot que ejecuta el skill start-task.
+  - id: ticket-review
+    type: prompt
+    bundle: devflow-review
+    description: Copilot slash command for a full ticket review with an executive summary.
+    description_es: Comando slash de Copilot para una revision completa de ticket con resumen ejecutivo.

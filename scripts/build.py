@@ -7,7 +7,7 @@ src/prompts/<id>.md (neutral)     -> plugins/<bundle>/commands/<id>.md and dist/
 catalog.yml                       -> .claude-plugin/marketplace.json and plugins/<bundle>/.claude-plugin/plugin.json
 
 Neutral agent frontmatter:  name, description, bundle?, claude: {tools, model, color}, copilot: {title, tools, model}
-Neutral prompt frontmatter: name, description, copilot: {agent, tools}, claude: {allowed-tools, argument-hint}
+Neutral prompt frontmatter: name, description, targets? (default both; skills already give Claude a slash command), copilot: {agent, tools}, claude: {allowed-tools, argument-hint}
 """
 import json
 import shutil
@@ -23,7 +23,7 @@ def reset(path):
 
 def main():
     cat = load_catalog()
-    by_id = {a["id"]: a for a in cat.get("assets") or []}
+    by_id = {(a["type"], a["id"]): a for a in cat.get("assets") or []}
     for d in (ROOT / "plugins", ROOT / "dist" / "copilot"):
         reset(d)
 
@@ -49,11 +49,13 @@ def main():
             (cop / "agents" / f"{i}.agent.md").write_text(dump_frontmatter(gm, body))
         elif kind == "prompt":
             meta, body = split_frontmatter((ROOT / "src" / "prompts" / f"{i}.md").read_text())
+            targets = meta.get("targets", ["claude", "copilot"])
             cm = {"description": meta["description"], **meta.get("claude", {})}
             gm = {"description": meta["description"], **meta.get("copilot", {})}
-            (plug / "commands").mkdir(parents=True, exist_ok=True)
             (cop / "prompts").mkdir(parents=True, exist_ok=True)
-            (plug / "commands" / f"{i}.md").write_text(dump_frontmatter(cm, body))
+            if "claude" in targets:
+                (plug / "commands").mkdir(parents=True, exist_ok=True)
+                (plug / "commands" / f"{i}.md").write_text(dump_frontmatter(cm, body))
             (cop / "prompts" / f"{i}.prompt.md").write_text(dump_frontmatter(gm, body))
         elif kind == "hook":
             src = ROOT / "src" / "hooks" / i

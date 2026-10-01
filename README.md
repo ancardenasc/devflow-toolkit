@@ -30,6 +30,8 @@ cp .devflow.example.yml /path/to/your/project/.devflow.yml
 |---|---|---|
 | `commit` | devflow-core | Conventional or ticket-prefixed commits from the staged diff, with confirmation and a batch mode for other skills. |
 | `case-kit` | devflow-portfolio | Scaffolds a 10-phase portfolio case-study repo (brief, research, PRD, design, testing, accessibility, case study). |
+| `start-task` | devflow-core | Starts a task - ticket lookup, base branch from the parent ticket, named branch, baseline tests and a draft PR/MR. |
+| `review-ticket` | devflow-review | Reviews a finished ticket - DoD check plus code-review, code-clean and ux-review agents, one consolidated report, optional publishing. |
 
 ### Agents
 
@@ -39,6 +41,14 @@ cp .devflow.example.yml /path/to/your/project/.devflow.yml
 | `code-review` | devflow-review | Read-only review of correctness, OWASP security, performance, SOLID and error handling on a PR/MR or local diff. |
 | `code-clean` | devflow-review | Read-only Clean Code gate - naming, functions, duplication, dead code, F.I.R.S.T tests and measured metrics. |
 | `ux-review` | devflow-review | Read-only UX/accessibility review on frontend changes - WCAG 2.2 AA, Nielsen heuristics, equitable design. |
+| `task-summary` | devflow-core | Prepares you to explain a finished task out loud - what, why, how it works, one-line pitch and likely questions; saves a backup page. |
+
+### Prompts / commands
+
+| Name | Bundle | Description |
+|---|---|---|
+| `start-task` | devflow-core | Copilot slash command that runs the start-task skill. |
+| `ticket-review` | devflow-review | Copilot slash command for a full ticket review with an executive summary. |
 <!-- catalog:end -->
 
 ## Configuration

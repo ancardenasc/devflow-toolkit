@@ -2,6 +2,8 @@
 import re
 import sys
 
+import yaml
+
 from common import ROOT, load_catalog, split_frontmatter
 
 NAME = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -42,8 +44,8 @@ def main():
         text = path.read_text()
         try:
             meta, _ = split_frontmatter(text)
-        except ValueError as e:
-            err(f"{path.relative_to(ROOT)}: {e}")
+        except (ValueError, yaml.YAMLError) as e:
+            err(f"{path.relative_to(ROOT)}: invalid frontmatter ({str(e).splitlines()[0]})")
             continue
         if kind != "prompt" and meta.get("name") != i:
             err(f"{path.relative_to(ROOT)}: frontmatter name != {i}")
@@ -63,6 +65,12 @@ def main():
                     err(f"{rel}:{n}: forbidden term: {line.strip()[:80]}")
         except UnicodeDecodeError:
             pass
+    # relative markdown links inside generated Copilot output must resolve
+    link = re.compile(r"\]\((\.{1,2}/[^)#]+)")
+    for f in (ROOT / "dist" / "copilot").rglob("*.md"):
+        for m in link.finditer(f.read_text()):
+            if not (f.parent / m.group(1)).resolve().exists():
+                err(f"{f.relative_to(ROOT).as_posix()}: broken relative link {m.group(1)}")
     for e in errors:
         print("ERROR", e)
     print(f"{len(errors)} problem(s)")

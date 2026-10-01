@@ -9,6 +9,11 @@ vcs:
   type: github            # github | gitlab
   default_branch: main
   assignee: null          # default MR/PR assignee
+workflow:
+  base_from_parent: true   # branch from the parent ticket's branch when it exists
+branch:
+  pattern: "{ticket}-{slug}"
+  max_slug_length: 50
 commit:
   format: conventional    # conventional | "[{ticket}] {summary}" | free text template
   language: en
