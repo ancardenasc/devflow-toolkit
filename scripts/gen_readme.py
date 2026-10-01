@@ -3,9 +3,9 @@ import re
 
 from common import ROOT, load_catalog
 
-TITLES = {"en": {"skill": "Skills", "agent": "Agents", "prompt": "Prompts / commands"},
-          "es": {"skill": "Skills", "agent": "Agentes", "prompt": "Prompts / comandos"}}
-HEAD = {"en": "| Name | Bundle | Description |", "es": "| Nombre | Bundle | Descripcion |"}
+TITLES = {"en": {"skill": "Skills", "agent": "Agents", "prompt": "Prompts / commands", "hook": "Hooks (Claude Code only)"},
+          "es": {"skill": "Skills", "agent": "Agentes", "prompt": "Prompts / comandos", "hook": "Hooks (solo Claude Code)"}}
+HEAD = {"en": "| Name | Bundle | Description |", "es": "| Nombre | Bundle | Descripción |"}
 
 
 def table(cat, lang):
@@ -27,9 +27,10 @@ def main():
         p = ROOT / fname
         if not p.exists():
             continue
+        text = re.sub(r"badge/assets-\d+-", f"badge/assets-{len(cat.get('assets') or [])}-", p.read_text())
         new = re.sub(r"(<!-- catalog:start -->).*?(<!-- catalog:end -->)",
                      lambda m: f"{m.group(1)}\n{table(cat, lang)}\n{m.group(2)}",
-                     p.read_text(), flags=re.S)
+                     text, flags=re.S)
         p.write_text(new)
 
 

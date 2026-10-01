@@ -1,0 +1,24 @@
+name: Bug report
+description: Something in an asset, the generator or the installer does not work
+labels: [bug]
+body:
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      options: [Claude Code, GitHub Copilot, Both, Scripts / CI]
+    validations: { required: true }
+  - type: input
+    id: asset
+    attributes:
+      label: Asset (skill, agent, prompt or script)
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened and what you expected
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps and your .devflow.yml (remove secrets)

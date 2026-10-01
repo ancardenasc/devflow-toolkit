@@ -9,13 +9,13 @@ description: Skills, agents and prompts for Claude Code and GitHub Copilot that 
 bundles:
   devflow-core:
     description: Ticket-to-merge workflow - start, implement, commit and ship a task.
-    description_es: Flujo ticket-a-merge - iniciar, implementar, commitear y entregar una tarea.
+    description_es: "Flujo ticket-a-merge: iniciar, implementar, commitear y entregar una tarea."
   devflow-review:
     description: Read-only reviewers - correctness and security, clean code, UX and accessibility.
-    description_es: Revisores de solo lectura - correccion y seguridad, codigo limpio, UX y accesibilidad.
+    description_es: "Revisores de solo lectura: correctitud y seguridad, código limpio, UX y accesibilidad."
   devflow-portfolio:
     description: Scaffold a UX/engineering case-study portfolio repository.
-    description_es: Estructura un repositorio de portafolio con casos de estudio UX/ingenieria.
+    description_es: "Estructura un repositorio de portafolio con casos de estudio UX/ingeniería."
 
 # assets: id must equal the file/folder name under src/.
 # type: skill | agent | prompt | hook
@@ -24,69 +24,69 @@ assets:
     type: skill
     bundle: devflow-core
     description: Conventional or ticket-prefixed commits from the staged diff, with confirmation and a batch mode for other skills.
-    description_es: Commits convencionales o con prefijo de ticket a partir del diff, con confirmacion y modo batch para otros skills.
+    description_es: "Commits convencionales o con prefijo de ticket a partir del diff, con confirmación y modo batch para otros skills."
   - id: session-title
     type: hook
     bundle: devflow-core
     description: Names each new Claude Code session after the git branch (Claude Code only).
-    description_es: Nombra cada sesion nueva de Claude Code con la rama git (solo Claude Code).
+    description_es: "Nombra cada sesión nueva de Claude Code con la rama git (solo Claude Code)."
   - id: unit-test-writer
     type: agent
     bundle: devflow-core
     description: Writes unit tests (Jest/Vitest + Testing Library or Vue Test Utils) for behavior, with a11y checks and a red/green TDD flow.
-    description_es: Escribe unit tests (Jest/Vitest + Testing Library o Vue Test Utils) de comportamiento, con a11y y flujo TDD rojo/verde.
+    description_es: "Escribe unit tests (Jest/Vitest + Testing Library o Vue Test Utils) de comportamiento, con a11y y flujo TDD rojo/verde."
   - id: case-kit
     type: skill
     bundle: devflow-portfolio
     description: Scaffolds a 10-phase portfolio case-study repo (brief, research, PRD, design, testing, accessibility, case study).
-    description_es: Genera un repo de caso de estudio de portafolio en 10 fases (brief, investigacion, PRD, diseno, pruebas, accesibilidad, caso).
+    description_es: "Genera un repo de caso de estudio de portafolio en 10 fases (brief, investigación, PRD, diseño, pruebas, accesibilidad, caso)."
   - id: code-review
     type: agent
     bundle: devflow-review
     description: Read-only review of correctness, OWASP security, performance, SOLID and error handling on a PR/MR or local diff.
-    description_es: Revision de solo lectura de correccion, seguridad OWASP, performance, SOLID y manejo de errores sobre un PR/MR o diff local.
+    description_es: "Revisión de solo lectura de correctitud, seguridad OWASP, performance, SOLID y manejo de errores sobre un PR/MR o diff local."
   - id: code-clean
     type: agent
     bundle: devflow-review
     description: Read-only Clean Code gate - naming, functions, duplication, dead code, F.I.R.S.T tests and measured metrics.
-    description_es: Gate de Clean Code de solo lectura - nombres, funciones, duplicacion, codigo muerto, tests F.I.R.S.T y metricas medidas.
+    description_es: "Gate de Clean Code de solo lectura: nombres, funciones, duplicación, código muerto, tests F.I.R.S.T y métricas medidas."
   - id: ux-review
     type: agent
     bundle: devflow-review
     description: Read-only UX/accessibility review on frontend changes - WCAG 2.2 AA, Nielsen heuristics, equitable design.
-    description_es: Revision UX/accesibilidad de solo lectura en cambios frontend - WCAG 2.2 AA, heuristicas de Nielsen, diseno equitativo.
+    description_es: "Revisión UX/accesibilidad de solo lectura en cambios frontend: WCAG 2.2 AA, heurísticas de Nielsen, diseño equitativo."
   - id: start-task
     type: skill
     bundle: devflow-core
     description: Starts a task - ticket lookup, base branch from the parent ticket, named branch, baseline tests and a draft PR/MR.
-    description_es: Inicia una tarea - consulta el ticket, rama base desde el ticket padre, rama con nombre, tests baseline y PR/MR en borrador.
+    description_es: "Inicia una tarea: consulta el ticket, rama base desde el ticket padre, rama con nombre, tests base y PR/MR en borrador."
   - id: review-ticket
     type: skill
     bundle: devflow-review
     description: Reviews a finished ticket - DoD check plus code-review, code-clean and ux-review agents, one consolidated report, optional publishing.
-    description_es: Revisa un ticket terminado - verifica DoD y corre los agentes code-review, code-clean y ux-review, un reporte consolidado y publicacion opcional.
+    description_es: "Revisa un ticket terminado: verifica el DoD y corre los agentes code-review, code-clean y ux-review; un reporte consolidado y publicación opcional."
   - id: task-summary
     type: agent
     bundle: devflow-core
     description: Prepares you to explain a finished task out loud - what, why, how it works, one-line pitch and likely questions; saves a backup page.
-    description_es: Te prepara para explicar una tarea terminada en voz alta - que, por que, como funciona, frase corta y preguntas probables; guarda un respaldo.
+    description_es: "Te prepara para explicar una tarea terminada en voz alta: qué, por qué, cómo funciona, frase corta y preguntas probables; guarda un respaldo."
   - id: start-task
     type: prompt
     bundle: devflow-core
     description: Copilot slash command that runs the start-task skill.
-    description_es: Comando slash de Copilot que ejecuta el skill start-task.
+    description_es: "Comando slash de Copilot que ejecuta el skill start-task."
   - id: ticket-review
     type: prompt
     bundle: devflow-review
     description: Copilot slash command for a full ticket review with an executive summary.
-    description_es: Comando slash de Copilot para una revision completa de ticket con resumen ejecutivo.
+    description_es: "Comando slash de Copilot para una revisión completa de ticket con resumen ejecutivo."
   - id: execute-task
     type: skill
     bundle: devflow-core
     description: Runs a whole task end to end - plan, TDD, local reviews, minimal commits, PR/MR with testing instructions, optional browser check and tester assignment; never merges.
-    description_es: Ejecuta una tarea completa - plan, TDD, revisiones locales, commits minimos, PR/MR con instrucciones de testeo, verificacion en navegador y testers opcionales; nunca hace merge.
+    description_es: "Ejecuta una tarea completa: plan, TDD, revisiones locales, commits mínimos, PR/MR con instrucciones de testeo, verificación en navegador y testers opcionales; nunca hace merge."
   - id: task-reviewers
     type: agent
     bundle: devflow-core
     description: Proposes balanced testers by real sprint load (one design, one engineering) and, after confirmation, writes the ticket and PR/MR reviewers; never touches the assignee.
-    description_es: Propone testers balanceados por carga real del sprint (uno de diseno, uno de ingenieria) y, tras confirmar, escribe el ticket y los reviewers del PR/MR; nunca toca el assignee.
+    description_es: "Propone testers balanceados por carga real del sprint (uno de diseño, uno de ingeniería) y, tras confirmar, escribe el ticket y los reviewers del PR/MR; nunca toca el assignee."

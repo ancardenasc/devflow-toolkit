@@ -66,10 +66,16 @@ def main():
         except UnicodeDecodeError:
             pass
     # relative markdown links inside generated Copilot output must resolve
-    link = re.compile(r"\]\((\.{1,2}/[^)#]+)")
-    for f in (ROOT / "dist" / "copilot").rglob("*.md"):
+    link = re.compile(r"\]\(((?:\.{1,2}/)?[A-Za-z0-9_.][^)#:\s]*)(?:#[^)]*)?\)")
+    docs = [ROOT / n for n in ("README.md", "README.es.md", "CONTRIBUTING.md", "AGENTS.md")]
+    docs += (ROOT / "docs").rglob("*.md")
+    docs += (ROOT / "examples").rglob("*.md")
+    for f in [*(ROOT / "dist" / "copilot").rglob("*.md"), *docs]:
         for m in link.finditer(f.read_text()):
-            if not (f.parent / m.group(1)).resolve().exists():
+            target = m.group(1)
+            if "/" not in target and not re.search(r"\.[a-z]{2,4}$", target):
+                continue  # placeholder like [title](url), not a path
+            if not (f.parent / target).resolve().exists():
                 err(f"{f.relative_to(ROOT).as_posix()}: broken relative link {m.group(1)}")
     for e in errors:
         print("ERROR", e)

@@ -1,0 +1,13 @@
+name: Asset request or idea
+description: Propose a new skill, agent or prompt, or a new configuration key
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What problem should it solve?
+    validations: { required: true }
+  - type: textarea
+    id: generic
+    attributes:
+      label: How would it stay generic (what goes in .devflow.yml)?
