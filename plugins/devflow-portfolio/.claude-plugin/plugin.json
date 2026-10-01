@@ -1,0 +1,10 @@
+{
+  "name": "devflow-portfolio",
+  "version": "0.1.0",
+  "description": "Scaffold a UX/engineering case-study portfolio repository.",
+  "author": {
+    "name": "Nicolas Cardenas",
+    "url": "https://github.com/ancardenasc"
+  },
+  "license": "MIT"
+}

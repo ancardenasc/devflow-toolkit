@@ -1,0 +1,10 @@
+{
+  "name": "devflow-core",
+  "version": "0.1.0",
+  "description": "Ticket-to-merge workflow - start, implement, commit and ship a task.",
+  "author": {
+    "name": "Nicolas Cardenas",
+    "url": "https://github.com/ancardenasc"
+  },
+  "license": "MIT"
+}

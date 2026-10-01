@@ -1,0 +1,32 @@
+# Copy to <your-project>/.devflow.yml. Skills and agents read it instead of
+# hardcoding company conventions. Every key is optional; defaults shown.
+tracker:
+  type: github            # github | jira | linear | none
+  ticket_pattern: '[A-Z]+-\d+'   # regex used to find the ticket id in branch names
+  site: null              # e.g. your-team.atlassian.net (jira only)
+  fields: {}              # tracker-specific ids, e.g. { sprint: customfield_XXXXX }
+vcs:
+  type: github            # github | gitlab
+  default_branch: main
+  assignee: null          # default MR/PR assignee
+commit:
+  format: conventional    # conventional | "[{ticket}] {summary}" | free text template
+  language: en
+  attribution: false      # true = add Co-Authored-By style trailers
+commands:
+  test: null              # e.g. "npm test", "yarn test --watchAll=false", "pytest"
+  lint: null
+  build: null
+frontend_globs: ["**/*.{vue,jsx,tsx,css,scss,html}"]
+docs:
+  target: markdown        # markdown | confluence | notion
+  path: docs/             # folder, or space/folder id for confluence/notion
+a11y:
+  standards: ["WCAG 2.2 AA"]   # add e.g. "NTC 5854" via profiles/colombia.md
+output_language: en       # language for reports, MR descriptions and summaries
+subagents:                # override names if you rename the reviewers
+  code_review: code-review
+  code_clean: code-clean
+  ux_review: ux-review
+  test_writer: unit-test-writer
+reviewers: []             # optional roster for the task-reviewers agent

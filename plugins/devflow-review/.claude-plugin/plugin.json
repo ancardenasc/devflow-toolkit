@@ -1,0 +1,10 @@
+{
+  "name": "devflow-review",
+  "version": "0.1.0",
+  "description": "Read-only reviewers - correctness and security, clean code, UX and accessibility.",
+  "author": {
+    "name": "Nicolas Cardenas",
+    "url": "https://github.com/ancardenasc"
+  },
+  "license": "MIT"
+}

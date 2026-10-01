@@ -1,0 +1,24 @@
+{
+  "name": "devflow-toolkit",
+  "owner": {
+    "name": "Nicolas Cardenas"
+  },
+  "description": "Skills, agents and prompts for Claude Code and GitHub Copilot that take a task from ticket to merge.",
+  "plugins": [
+    {
+      "name": "devflow-core",
+      "source": "./plugins/devflow-core",
+      "description": "Ticket-to-merge workflow - start, implement, commit and ship a task."
+    },
+    {
+      "name": "devflow-portfolio",
+      "source": "./plugins/devflow-portfolio",
+      "description": "Scaffold a UX/engineering case-study portfolio repository."
+    },
+    {
+      "name": "devflow-review",
+      "source": "./plugins/devflow-review",
+      "description": "Read-only reviewers - correctness and security, clean code, UX and accessibility."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+name: validate
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - name: Lint sources
+        run: python scripts/lint.py
+      - name: Generated output is up to date
+        run: |
+          python scripts/build.py
+          python scripts/gen_readme.py
+          git diff --exit-code
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env: { GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
